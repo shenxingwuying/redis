@@ -3505,6 +3505,37 @@ struct COMMAND_ARG HMSET_Args[] = {
 {MAKE_ARG("data",ARG_TYPE_BLOCK,-1,NULL,NULL,NULL,CMD_ARG_MULTIPLE,2,NULL),.subargs=HMSET_data_Subargs},
 };
 
+/********** HMSETNX ***********************/
+
+#ifndef SKIP_CMD_HISTORY_TABLE
+/* HMSETNX history */
+#define HMSETNX_History NULL
+#endif
+
+#ifndef SKIP_CMD_TIPS_TABLE
+/* HMSETNX tips */
+#define HMSETNX_Tips NULL
+#endif
+
+#ifndef SKIP_CMD_KEY_SPECS_TABLE
+/* HMSETNX key specs */
+keySpec HMSETNX_Keyspecs[1] = {
+{NULL,CMD_KEY_RW|CMD_KEY_UPDATE,KSPEC_BS_INDEX,.bs.index={1},KSPEC_FK_RANGE,.fk.range={0,1,0}}
+};
+#endif
+
+/* HMSETNX data argument table */
+struct COMMAND_ARG HMSETNX_data_Subargs[] = {
+{MAKE_ARG("field",ARG_TYPE_STRING,-1,NULL,NULL,NULL,CMD_ARG_NONE,0,NULL)},
+{MAKE_ARG("value",ARG_TYPE_STRING,-1,NULL,NULL,NULL,CMD_ARG_NONE,0,NULL)},
+};
+
+/* HMSETNX argument table */
+struct COMMAND_ARG HMSETNX_Args[] = {
+{MAKE_ARG("key",ARG_TYPE_KEY,0,NULL,NULL,NULL,CMD_ARG_NONE,0,NULL)},
+{MAKE_ARG("data",ARG_TYPE_BLOCK,-1,NULL,NULL,NULL,CMD_ARG_MULTIPLE,2,NULL),.subargs=HMSETNX_data_Subargs},
+};
+
 /********** HRANDFIELD ********************/
 
 #ifndef SKIP_CMD_HISTORY_TABLE
